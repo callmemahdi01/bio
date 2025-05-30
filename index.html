@@ -1,235 +1,106 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهدی رضایی</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
-            --border-color: #e2e8f0;
-        }
+  <meta charset="UTF-8" />
+  <title>iframe با دکمه فول‌اسکرین همیشه فعال</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+      background-color: #f4f7f6;
+      position: relative;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    iframe {
+      width: 80%;
+      max-width: 1200px;
+      height: 100vh;
+      border: none;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+      overflow: auto;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Vazirmatn, system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
+    .fullscreen-btn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 10000;
+      background: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      user-select: none;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+    .fullscreen-btn:hover {
+      background: #1976D2;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
+    /* استایل حالت فول‌اسکرین */
+    :fullscreen iframe,
+    iframe:fullscreen {
+      width: 100vw !important;
+      height: 100vh !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      display: block;
+    }
 
-        .section {
-            background-color: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        h3 {
-            color: var(--secondary-color);
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.4rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-
-        ul {
-            padding-right: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-        }
-
-        th, td {
-            padding: 1rem;
-            border: 1px solid var(--border-color);
-            text-align: right;
-        }
-
-        th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-
-        .conclusion {
-            background-color: #f0f9ff;
-            border-right: 4px solid var(--primary-color);
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-    </style>
+    /* هیچ استایلی برای دکمه در حالت فول اسکرین تغییر نمی‌کند */
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>انواع دیورتیک‌ها و تأثیر آن‌ها بر اسیدوز، آلکالوز و میزان سدیم</h1>
-            <p>بررسی جامع مکانیسم‌های عمل و تأثیرات دیورتیک‌ها بر تعادل الکترولیت‌ها</p>
-        </header>
 
-        <section class="section">
-            <p>دیورتیک‌ها دسته‌ای از داروها هستند که با افزایش دفع ادرار از طریق کلیه‌ها، نقش مهمی در کاهش حجم مایعات بدن و مدیریت بیماری‌هایی مانند فشار خون بالا، نارسایی قلبی، و اِدِم ایفا می‌کنند. انواع مختلف دیورتیک‌ها شامل تیازیدی، لوپ، نگه‌دارنده پتاسیم، و کربنیک آنهیدراز می‌باشند.</p>
-        </section>
+  <button class="fullscreen-btn" id="fsBtn" onclick="toggleFullscreen()">
+    <span class="material-icons" id="fsIcon">fullscreen</span>
+  </button>
 
-        <section class="section">
-            <h2>۱. دیورتیک‌های تیازیدی</h2>
-            <h3>مکانیسم عمل</h3>
-            <p>دیورتیک‌های تیازیدی با مهار ناقل سدیم-کلر در لوله‌های پیچیده دیستال کلیه، بازجذب سدیم و کلر را کاهش داده و باعث افزایش دفع آن‌ها همراه با آب می‌شوند.</p>
-            <h3>تأثیر بر اسیدوز و آلکالوز</h3>
-            <ul>
-                <li>دیورتیک‌های تیازیدی ممکن است موجب آلکالوز متابولیک شوند. این امر به دلیل افزایش بازجذب بیکربنات و دفع پتاسیم و هیدروژن از طریق کلیه‌ها رخ می‌دهد.</li>
-            </ul>
-            <h3>تأثیر بر میزان سدیم</h3>
-            <ul>
-                <li>این داروها باعث دفع سدیم می‌شوند و در نتیجه ممکن است باعث هیپوناترمی (کاهش سدیم خون) شوند.</li>
-            </ul>
-        </section>
+  <iframe
+    id="myFrame"
+    src="https://callmemahdi01.github.io/epid/index.html"
+    allowfullscreen
+    scrolling="yes"
+  ></iframe>
 
-        <section class="section">
-            <h2>۲. دیورتیک‌های لوپ</h2>
-            <h3>مکانیسم عمل</h3>
-            <p>دیورتیک‌های لوپ ناقل سدیم-پتاسیم-کلر را در بخش صعودی قوس هنله مهار می‌کنند. این امر باعث کاهش شدید بازجذب سدیم، پتاسیم و کلر شده و دفع آن‌ها را افزایش می‌دهد.</p>
-            <h3>تأثیر بر اسیدوز و آلکالوز</h3>
-            <ul>
-                <li>دیورتیک‌های لوپ نیز مانند تیازیدها می‌توانند موجب آلکالوز متابولیک شوند، زیرا با افزایش دفع یون‌های هیدروژن و پتاسیم تعادل اسید-باز به سمت قلیایی شدن متمایل می‌شود.</li>
-            </ul>
-            <h3>تأثیر بر میزان سدیم</h3>
-            <ul>
-                <li>این داروها اثر قوی‌تری در دفع سدیم دارند و می‌توانند باعث هیپوناترمی شدید شوند. دفع سدیم معمولاً با کاهش حجم مایعات بدن و تحریک سیستم رنین-آنژیوتانسین-آلدوسترون همراه است.</li>
-            </ul>
-        </section>
+  <script>
+    function toggleFullscreen() {
+      const iframe = document.getElementById("myFrame");
+      const icon = document.getElementById("fsIcon");
 
-        <section class="section">
-            <h2>۳. دیورتیک‌های نگه‌دارنده پتاسیم</h2>
-            <h3>مکانیسم عمل</h3>
-            <p>این دسته از دیورتیک‌ها بازجذب سدیم را در کانال‌های سدیمی لوله‌های جمع‌کننده مهار کرده و دفع سدیم را افزایش می‌دهند. اما برخلاف دیورتیک‌های دیگر، پتاسیم را حفظ می‌کنند.</p>
-            <h3>تأثیر بر اسیدوز و آلکالوز</h3>
-            <ul>
-                <li>دیورتیک‌های نگه‌دارنده پتاسیم می‌توانند خطر اسیدوز متابولیک را افزایش دهند، زیرا دفع هیدروژن کاهش می‌یابد.</li>
-            </ul>
-            <h3>تأثیر بر میزان سدیم</h3>
-            <ul>
-                <li>این داروها باعث دفع سدیم می‌شوند، اما اثر آن‌ها در مقایسه با دیورتیک‌های تیازیدی و لوپ خفیف‌تر است.</li>
-            </ul>
-        </section>
+      if (!document.fullscreenElement) {
+        iframe.requestFullscreen().then(() => {
+          icon.textContent = "fullscreen_exit";
+        });
+      } else {
+        document.exitFullscreen().then(() => {
+          icon.textContent = "fullscreen";
+        });
+      }
+    }
 
-        <section class="section">
-            <h2>۴. مهارکننده‌های کربنیک آنیدراز</h2>
-            <h3>مکانیسم عمل</h3>
-            <p>این داروها آنزیم کربنیک آنهیدراز را مهار کرده و بازجذب بیکربنات، سدیم و آب را در لوله‌های پیچیده پروگزیمال کاهش می‌دهند.</p>
-            <h3>تأثیر بر اسیدوز و آلکالوز</h3>
-            <ul>
-                <li>مهارکننده‌های کربنیک آنهیدراز معمولاً باعث اسیدوز متابولیک می‌شوند، زیرا بازجذب بیکربنات کاهش یافته و یون‌های اسیدی در بدن تجمع می‌یابند.</li>
-            </ul>
-            <h3>تأثیر بر میزان سدیم</h3>
-            <ul>
-                <li>این داروها دفع سدیم را افزایش می‌دهند، اما قدرت اثر آن‌ها نسبت به دیورتیک‌های لوپ و تیازیدی کمتر است.</li>
-            </ul>
-        </section>
+    document.addEventListener("fullscreenchange", () => {
+      const icon = document.getElementById("fsIcon");
+      if (!document.fullscreenElement) {
+        icon.textContent = "fullscreen";
+      }
+    });
+  </script>
 
-        <section class="section">
-            <h2>جدول مقایسه اثرات دیورتیک‌ها</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>نوع دیورتیک</th>
-                        <th>تأثیر بر اسیدوز/آلکالوز</th>
-                        <th>تأثیر بر میزان سدیم</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>تیازیدی</td>
-                        <td>آلکالوز متابولیک</td>
-                        <td>افزایش دفع سدیم</td>
-                    </tr>
-                    <tr>
-                        <td>لوپ</td>
-                        <td>آلکالوز متابولیک</td>
-                        <td>افزایش شدید دفع سدیم</td>
-                    </tr>
-                    <tr>
-                        <td>نگه‌دارنده پتاسیم</td>
-                        <td>اسیدوز متابولیک</td>
-                        <td>افزایش دفع سدیم خفیف</td>
-                    </tr>
-                    <tr>
-                        <td>کربنیک آنهیدراز</td>
-                        <td>اسیدوز متابولیک</td>
-                        <td>افزایش دفع سدیم کم</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section class="section conclusion">
-            <h2>نتیجه‌گیری</h2>
-            <p>دیورتیک‌ها به‌عنوان یکی از ابزارهای مهم در درمان بیماری‌های قلبی-عروقی و کلیوی تأثیرات متنوعی بر تعادل الکترولیت‌ها و اسید-باز بدن دارند. استفاده صحیح و آگاهانه از این داروها با در نظر گرفتن عوارض احتمالی از جمله تغییرات اسیدوز و آلکالوز و میزان سدیم، برای مدیریت بهتر بیماران ضروری است. پزشکان باید این تغییرات را در نظر گرفته و بر اساس وضعیت بیمار، نوع مناسب دیورتیک را انتخاب کنند.</p>
-        </section>
-        <div>
-              مهدی رضایی - پزشکی مهر 401 - 14011111201
-        </div>
-    </div>
 </body>
 </html>
